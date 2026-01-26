@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:padding="12dp"
+    android:background="@drawable/ic_card_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/expenseIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/food"
+            android:contentDescription="Expense Icon"
+            android:layout_marginEnd="12dp" />
+
+        <!-- Text details -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/expenseTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pizza"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/expenseDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alice paid • 01 Oct 2025"
+                android:textSize="14sp"
+                android:textColor="@color/grey" />
+        </LinearLayout>
+
+        <!-- Amount -->
+        <TextView
+            android:id="@+id/expenseAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$30"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/blue" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

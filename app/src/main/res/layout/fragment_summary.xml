@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@drawable/ic_card_background"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/totalGroupExpenses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: $0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/averagePerPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avg per person: $0"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"/>
+    </LinearLayout>
+
+    <!-- Balances RecyclerView -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Balances"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/balancesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical" />
+
+    <!-- Pie Chart -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Who Paid How Much"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/contributionChart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Settlement Messages -->
+    <TextView
+        android:id="@+id/settlementMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Settlement details will appear here"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"/>
+</LinearLayout>

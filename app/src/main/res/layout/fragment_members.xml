@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/grey_light">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvMembersTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Members"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Members List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/membersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Recent Expenses Title -->
+    <TextView
+        android:id="@+id/tvRecentExpenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recent Expenses"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Expenses List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_RecentExpenses"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:nestedScrollingEnabled="false" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/btnAddMember"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add Member"
+            android:backgroundTint="@color/blue"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
