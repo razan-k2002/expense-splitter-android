@@ -21,9 +21,9 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 0:
                 return MembersFragment.newInstance(selectedGroup);
             case 1:
-                return ExpensesFragment.newInstance(selectedGroup); // implement later
+                return ExpensesFragment.newInstance(selectedGroup);
             case 2:
-                return SummaryFragment.newInstance(selectedGroup);  // implement later
+                return SummaryFragment.newInstance(selectedGroup);
             default:
                 return new Fragment();
         }
@@ -31,6 +31,5 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3; // Members, Expenses, Summary
-    }
+        return 3;}
 }

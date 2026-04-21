@@ -2,29 +2,26 @@ package com.example.personalexpensesplitterproject;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHolder> {
 
     private List<Group> groups;
-    private List<Group> fullList;  // full copy of all groups
+    private List<Group> fullList;
     private Context context;
 
     public GroupAdapter(List<Group> groups, Context context) {
         this.groups = groups;
         this.context = context;
-        this.fullList = new ArrayList<>(groups); // initial full copy
+        this.fullList = new ArrayList<>(groups);
     }
 
     @NonNull
@@ -40,12 +37,12 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
         holder.groupName.setText(group.getName());
         holder.groupBalance.setText(group.getBalanceDescription());
         holder.groupIcon.setImageResource(group.getIconResId());
-
         holder.arrowForward.setOnClickListener(v -> {
             Intent intent = new Intent(context, GroupDetailsActivity.class);
-            intent.putExtra("groupName", group.getName());
+            intent.putExtra("group", group);
             context.startActivity(intent);
         });
+
     }
 
     @Override
@@ -53,7 +50,6 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
         return groups.size();
     }
 
-    // ✅ FIXED FILTER METHOD
     public void filter(String text) {
         groups.clear();
         if (text == null || text.trim().isEmpty()) {
@@ -69,7 +65,6 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
         notifyDataSetChanged();
     }
 
-    // ✅ Keep fullList updated whenever a new group is added
     public void refreshFullList() {
         fullList.clear();
         fullList.addAll(groups);

@@ -5,11 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
+import java.util.Locale;
 
 public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder> {
 
@@ -32,9 +31,12 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
         Expense expense = expenseList.get(position);
 
         holder.expenseTitle.setText(expense.getTitle());
-        holder.expenseDetails.setText(expense.getPaidBy() + " • " + expense.getDate());
-        holder.expenseAmount.setText("$" + expense.getAmount());
-        holder.expenseIcon.setImageResource(expense.getIconResId());
+        holder.expenseDetails.setText(
+                expense.getPaidBy() + " • " + expense.getDate()
+        );
+        // Inside onBindViewHolder
+        holder.expenseAmount.setText(String.format(Locale.US, "$%.2f", expense.getAmount()));
+        holder.expenseIcon.setImageResource(expense.getIconRes());
     }
 
     @Override
@@ -46,7 +48,7 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
         ImageView expenseIcon;
         TextView expenseTitle, expenseDetails, expenseAmount;
 
-        public ExpenseViewHolder(@NonNull View itemView) {
+        ExpenseViewHolder(@NonNull View itemView) {
             super(itemView);
             expenseIcon = itemView.findViewById(R.id.expenseIcon);
             expenseTitle = itemView.findViewById(R.id.expenseTitle);

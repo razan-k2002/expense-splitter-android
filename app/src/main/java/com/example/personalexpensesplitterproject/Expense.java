@@ -1,24 +1,23 @@
 package com.example.personalexpensesplitterproject;
-
 public class Expense {
+
     private String title;
     private String paidBy;
     private double amount;
     private String date;
-    private int iconResId;
+    private int iconRes;
 
-    public Expense(String title, String paidBy, double amount, String date, int iconResId) {
+    public Expense(String title, String paidBy, double amount, String date, int iconRes) {
         this.title = title;
         this.paidBy = paidBy;
         this.amount = amount;
         this.date = date;
-        this.iconResId = iconResId;
+        this.iconRes = iconRes;
     }
 
-    // Getters
     public String getTitle() { return title; }
     public String getPaidBy() { return paidBy; }
     public double getAmount() { return amount; }
     public String getDate() { return date; }
-    public int getIconResId() { return iconResId; }
+    public int getIconRes() { return iconRes; }
 }

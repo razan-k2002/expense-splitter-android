@@ -12,7 +12,6 @@ public class Group implements Serializable {
     private List<Member> members;
     private List<Expense> expenses;
 
-    // Main constructor
     public Group(String name, double balance, int iconResId, String status, List<Member> members) {
         this.name = name;
         this.balance = balance;
@@ -22,14 +21,12 @@ public class Group implements Serializable {
         this.expenses = new ArrayList<>();
     }
 
-    // Returns dynamic balance description
     public String getBalanceDescription() {
         if (balance > 0) return "You lent $" + String.format("%.2f", balance);
         if (balance < 0) return "You owe $" + String.format("%.2f", Math.abs(balance));
         return "All settled up";
     }
 
-    // Convenience constructors
     public Group(String name, int iconResId) {
         this(name, 0.0, iconResId, "owes", new ArrayList<>());
     }
@@ -38,13 +35,12 @@ public class Group implements Serializable {
         this(name, 0.0, iconResId, "owes", members);
     }
 
-    // Expenses helper
     public void addExpense(Expense e) {
         if (expenses == null) expenses = new ArrayList<>();
         expenses.add(e);
     }
 
-    // Getters & setters
+
     public String getName() { return name; }
     public double getBalance() { return balance; }
     public void setBalance(double balance) { this.balance = balance; }

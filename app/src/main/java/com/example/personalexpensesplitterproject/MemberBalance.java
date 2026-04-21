@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class MemberBalance implements Serializable {
     private String memberName;
     private int memberIconRes;
-    private double balance; // positive = gets back, negative = owes
+    private double balance;
 
     public MemberBalance(String memberName, int memberIconRes, double balance) {
         this.memberName = memberName;

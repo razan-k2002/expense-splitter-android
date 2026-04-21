@@ -1,79 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="?android:attr/windowBackground">
 
-    <!-- Header Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp"
-        android:background="@drawable/ic_card_background"
-        android:elevation="4dp">
+        android:padding="16dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="?attr/colorSurface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/totalGroupExpenses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    tools:text="Total: $1,250.00" />
+
+                <TextView
+                    android:id="@+id/averagePerPerson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="15sp"
+                    tools:text="Avg per person: $312.50" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/totalGroupExpenses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total: $0"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="Spending Split"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"/>
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="?attr/colorSurface">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/contributionChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent" />
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/averagePerPerson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Avg per person: $0"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"/>
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="Member Status"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp"
+            app:cardBackgroundColor="?attr/colorSurface">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/balancesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:padding="8dp"
+                tools:listitem="@layout/item_balance" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="Settlement Plan"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#1A2196F3"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/settlementMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp"
+                tools:text="• John owes Sarah $20.00\n• Mike owes Sarah $10.00" />
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
-
-    <!-- Balances RecyclerView -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Balances"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/balancesRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="8dp"
-        android:scrollbars="vertical" />
-
-    <!-- Pie Chart -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Who Paid How Much"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"/>
-
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/contributionChart"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="8dp"/>
-
-    <!-- Settlement Messages -->
-    <TextView
-        android:id="@+id/settlementMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Settlement details will appear here"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"/>
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

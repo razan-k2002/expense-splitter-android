@@ -1,23 +1,15 @@
 package com.example.personalexpensesplitterproject;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,7 +74,7 @@ public class CreateGroupActivity extends AppCompatActivity {
         membersRecycler.setAdapter(memberAdapter);
         TextView addMembers = findViewById(R.id.addMembers);
         addMembers.setOnClickListener(v -> {
-            MemberUtils.showAddMemberBottomSheet(this, members, memberAdapter);
+            MemberUtils.showAddMemberBottomSheet(this, members, memberAdapter, null);
         });
 
         saveButton.setOnClickListener(v -> {
@@ -92,9 +84,9 @@ public class CreateGroupActivity extends AppCompatActivity {
                 resultIntent.putExtra("groupName", groupName);
                 resultIntent.putExtra("groupIcon",
                         selectedIcon[0] != null ? (Integer) selectedIcon[0].getTag() : R.drawable.ic_group);
-                resultIntent.putExtra("members", new ArrayList<>(members)); // ✅ right place
+                resultIntent.putExtra("members", new ArrayList<>(members));
 
-                setResult(RESULT_OK, resultIntent);  // send data back
+                setResult(RESULT_OK, resultIntent);
                 finish();
             } else {
                 groupNameInput.setError("Group name cannot be empty");
