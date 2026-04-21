@@ -24,17 +24,19 @@ The application calculates how the cost should be divided and tracks the balance
 
 ## Screenshots
 
-![Main Screen](screenshots/Summary_Fragment.jpeg)
+![Summary Screen](screenshots/Summary_Fragment.jpeg)
 
-![Main Screen](screenshots/Summary_Fragment-2.jpeg)
+![Summary Screen](screenshots/Summary_Fragment-2.jpeg)
 
 ![Add Expense](screenshots/Add_Expense.jpeg)
 
 ![Members Screen](screenshots/Members_Fragment.jpeg)
 
-![Groups RecyclerView](screenshots/HomeSreen.jpeg)
+![Groups Main Screen](screenshots/HomeSreen.jpeg)
 
 ![Expense Screen](screenshots/Expense_Fragment.jpeg)
+
+![Add a Member](screenshots/Add-Member.jpeg)
 
 ## Future Improvements
 
